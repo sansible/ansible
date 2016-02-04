@@ -1,0 +1,6 @@
+---
+
+- name: install ansible
+  include: install.yml
+  tags:
+    - build
