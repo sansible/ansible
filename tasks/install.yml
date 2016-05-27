@@ -1,29 +1,20 @@
 ---
 
-- name: Install Build Essentials
-  sudo: yes
+- name: Install Ansible required packages
+  become: yes
   apt:
     name: "{{ item }}"
   with_items:
-    - build-essential
+    - dpkg-dev
+    - libffi-dev
+    - libssl-dev
+    - libyaml-cpp-dev
+    - python2.7
     - python-dev
-    - python-setuptools
-
-- name: Download Ansible
-  sudo: yes
-  get_url:
-    url: "http://releases.ansible.com/ansible/ansible-{{ ansible.version }}.tar.gz"
-    dest: "/usr/local/src/ansible-{{ ansible.version }}.tar.gz"
-
-- name: Unarchive Ansible
-  sudo: yes
-  unarchive:
-    src: "/usr/local/src/ansible-{{ ansible.version }}.tar.gz"
-    dest: "/usr/local/src"
-    copy: no
+    - python-pip
 
 - name: Install Ansible
-  sudo: yes
-  command: python setup.py install
-  args:
-    chdir: "/usr/local/src/ansible-{{ ansible.version }}"
+  become: yes
+  pip:
+    name: ansible
+    version: "{{ ansible.version }}"
