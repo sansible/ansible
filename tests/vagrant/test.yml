@@ -1,0 +1,16 @@
+---
+
+- name: Test Ansible
+  hosts: all
+
+  pre_tasks:
+    - name: Update apt
+      become: yes
+      apt:
+        update_cache: yes
+      tags:
+        - build
+        
+  roles:
+    - role: sansible.ansible
+      version: 1.9.6
