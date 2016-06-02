@@ -13,6 +13,12 @@
     - python-dev
     - python-pip
 
+- name: Install latest version of setuptools
+  become: yes
+  pip:
+    name: setuptools
+    state: latest
+
 - name: Install Ansible
   become: yes
   pip:
