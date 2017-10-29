@@ -8,7 +8,14 @@ Develop: [![Build Status](https://travis-ci.org/sansible/ansible.svg?branch=deve
 * [Tags](#tags)
 * [Examples](#examples)
 
+Please see [Sansible](https://github.com/sansible/sansible) for general
+contribution and organisation information.
+
 This roles installs Ansible.
+
+In addition to Ansible specific versions of Setuptools and Cryptography are
+installed to get around installation issues such as:
+https://github.com/ansible/ansible/issues/31741
 
 
 
@@ -70,6 +77,6 @@ With version specified:
 
   roles:
     - role: sansible.ansible
-      ansible:
-        version: 1.9.6
+      sansible_ansible:
+        version: 2.3.2.0
 ```

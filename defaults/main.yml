@@ -1,4 +1,6 @@
 ---
 
-ansible:
-  version: 1.8.4
+sansible_ansible:
+  version: 2.4.1.0
+  version_cryptography: 2.0.3
+  version_setuptools: 36.6.0
