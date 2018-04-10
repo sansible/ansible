@@ -20,12 +20,12 @@
     version: "{{ item.version }}"
   with_items:
     - name: setuptools
-      version: "{{ sansible_ansible.version_setuptools }}"
+      version: "{{ sansible_ansible_version_setuptools }}"
     - name: cryptography
-      version: "{{ sansible_ansible.version_cryptography }}"
+      version: "{{ sansible_ansible_version_cryptography }}"
 
 - name: Install Ansible
   become: yes
   pip:
     name: ansible
-    version: "{{ sansible_ansible.version }}"
+    version: "{{ sansible_ansible_version }}"
